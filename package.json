@@ -14,6 +14,8 @@
     "@testing-library/user-event": "^13.5.0",
     "date-fns": "^3.6.0",
     "dayjs": "^1.11.12",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.5.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "^5.0.1",

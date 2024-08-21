@@ -1,15 +1,15 @@
 import express from 'express';
 import { check } from 'express-validator';
 import {
-  getPlaceById,
   getPlacesByUserId,
-  createPlace,
   updatePlace,
   deletePlace,
 } from '../controllers/place-controller.js';
+import { createPlace, getPlaceById, getAllPlaces } from '../mongo.js';
 
 export const router = express.Router();
 
+router.get('/', getAllPlaces);
 router.get('/:pid', getPlaceById);
 
 router.get('/user/:uid', getPlacesByUserId);
