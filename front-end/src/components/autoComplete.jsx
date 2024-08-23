@@ -1,6 +1,7 @@
 import { Autocomplete, TextField } from "@mui/material"
 import { useState } from 'react';
 import { selectAddress } from "../data";
+import axios from 'axios';
 
 export const AutoCompleteSample = () => {
   const [selectedPref, setSelectedPref] = useState(null);
@@ -28,6 +29,24 @@ export const AutoCompleteSample = () => {
   const handleCityChange = (e, val) => {
     setSelectedCity(val);
   }
+
+  const handleSubmit = async () => {
+    let data;
+    if (selectedPref && selectedCity) {
+      data = {
+        prefecture: selectedPref.prefName,
+        city: selectedCity.cityName
+      }
+    };
+
+    try {
+      const response = await axios.post('http://localhost:5001/api/place', data);
+      console.log('Data successfully sent to the backend', response.data)
+    } catch (err) {
+      console.error('Error sending data to the backend', err)
+    }
+  }
+
     return(
         <>
             <p style={{fontWeight: 'bold'}}>目的地を選択してください</p>

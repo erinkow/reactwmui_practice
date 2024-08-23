@@ -2,7 +2,6 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { router as placeRoutes } from './routes/place-routes.js';
 import { router as userRoutes } from './routes/user-routes.js';
-import HttpError from './models/http-error.js';
 import mongoose from 'mongoose';
 
 const app = express();

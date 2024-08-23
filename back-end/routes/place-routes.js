@@ -1,11 +1,13 @@
 import express from 'express';
 import { check } from 'express-validator';
 import {
+  createPlace,
+  getAllPlaces,
+  getPlaceById,
   getPlacesByUserId,
   updatePlace,
   deletePlace,
 } from '../controllers/place-controller.js';
-import { createPlace, getPlaceById, getAllPlaces } from '../mongoose.js';
 
 export const router = express.Router();
 
