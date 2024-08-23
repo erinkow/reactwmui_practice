@@ -48,12 +48,12 @@ export const createPlace = async (req, res, next) => {
 export const getAllPlaces = async (req, res, next) => {
     const client = new MongoClient(url);
 
-    let places;
+    let place;
 
     try {
         await client.connect();
         const db = client.db();
-        places = await db.collection('place').find().toArray();
+        place = await db.collection('place').find().toArray();
 
     } catch(err) {
         return next(new HttpError('Could not fetch the data', 404));
@@ -61,11 +61,11 @@ export const getAllPlaces = async (req, res, next) => {
         client.close();
     };
 
-    if (!places || places.length === 0) {
+    if (!place || place.length === 0) {
         return next(new HttpError('No places exit', 404));
     }
 
-    res.status(201).json({places})
+    res.status(201).json({place})
 }
 
 export const getPlaceById = async (req, res, next) => {
@@ -83,7 +83,7 @@ export const getPlaceById = async (req, res, next) => {
         client.close();
     };
 
-    if (!places || places.length === 0) {
+    if (!place || place.length === 0) {
         return next(new HttpError('Node places found', 404));
     }
     res.status(201).json({places})

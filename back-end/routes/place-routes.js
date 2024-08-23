@@ -5,7 +5,7 @@ import {
   updatePlace,
   deletePlace,
 } from '../controllers/place-controller.js';
-import { createPlace, getPlaceById, getAllPlaces } from '../mongo.js';
+import { createPlace, getPlaceById, getAllPlaces } from '../mongoose.js';
 
 export const router = express.Router();
 
